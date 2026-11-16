@@ -1,0 +1,105 @@
+
+ RUN  v5.1.0 /Users/immat0x1/Documents/quality_labs/lab1
+
+ ❯ src/email.test.js (18 tests | 18 failed) 5ms
+   ❯ validateEmail (18)
+     × accepts valid address user@example.com 2ms
+     × accepts valid address ilya.gugu@mail.ru 0ms
+     × accepts valid address a_b-c+tag@sub.domain.org 0ms
+     × accepts valid address X@Y.IO 0ms
+     × trims spaces around the address 0ms
+     × rejects  (empty string) 0ms
+     × rejects userexample.com (no @) 0ms
+     × rejects user@@example.com (two @) 0ms
+     × rejects @example.com (empty local part) 0ms
+     × rejects user@ (empty domain) 0ms
+     × rejects user@example (domain without dot) 0ms
+     × rejects user@example.c (one-letter TLD) 0ms
+     × rejects us er@example.com (space inside) 0ms
+     × rejects .user@example.com (local part starts with dot) 0ms
+     × rejects user..name@example.com (two dots in a row) 0ms
+     × rejects user@-example.com (domain label starts with hyphen) 0ms
+     × rejects local part longer than 64 characters 0ms
+     × rejects non-string values 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/email.test.js > validateEmail > accepts valid address user@example.com
+ FAIL  src/email.test.js > validateEmail > accepts valid address ilya.gugu@mail.ru
+ FAIL  src/email.test.js > validateEmail > accepts valid address a_b-c+tag@sub.domain.org
+ FAIL  src/email.test.js > validateEmail > accepts valid address X@Y.IO
+Error: Not implemented
+ ❯ validateEmail src/email.js:2:9
+      1| export const validateEmail = () => {
+      2|   throw new Error('Not implemented');
+       |         ^
+      3| };
+      4|
+ ❯ src/email.test.js:8:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  src/email.test.js > validateEmail > trims spaces around the address
+Error: Not implemented
+ ❯ validateEmail src/email.js:2:9
+      1| export const validateEmail = () => {
+      2|   throw new Error('Not implemented');
+       |         ^
+      3| };
+      4|
+ ❯ src/email.test.js:13:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  src/email.test.js > validateEmail > rejects  (empty string)
+ FAIL  src/email.test.js > validateEmail > rejects userexample.com (no @)
+ FAIL  src/email.test.js > validateEmail > rejects user@@example.com (two @)
+ FAIL  src/email.test.js > validateEmail > rejects @example.com (empty local part)
+ FAIL  src/email.test.js > validateEmail > rejects user@ (empty domain)
+ FAIL  src/email.test.js > validateEmail > rejects user@example (domain without dot)
+ FAIL  src/email.test.js > validateEmail > rejects user@example.c (one-letter TLD)
+ FAIL  src/email.test.js > validateEmail > rejects us er@example.com (space inside)
+ FAIL  src/email.test.js > validateEmail > rejects .user@example.com (local part starts with dot)
+ FAIL  src/email.test.js > validateEmail > rejects user..name@example.com (two dots in a row)
+ FAIL  src/email.test.js > validateEmail > rejects user@-example.com (domain label starts with hyphen)
+Error: Not implemented
+ ❯ validateEmail src/email.js:2:9
+      1| export const validateEmail = () => {
+      2|   throw new Error('Not implemented');
+       |         ^
+      3| };
+      4|
+ ❯ src/email.test.js:29:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  src/email.test.js > validateEmail > rejects local part longer than 64 characters
+Error: Not implemented
+ ❯ validateEmail src/email.js:2:9
+      1| export const validateEmail = () => {
+      2|   throw new Error('Not implemented');
+       |         ^
+      3| };
+      4|
+ ❯ src/email.test.js:33:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  src/email.test.js > validateEmail > rejects non-string values
+Error: Not implemented
+ ❯ validateEmail src/email.js:2:9
+      1| export const validateEmail = () => {
+      2|   throw new Error('Not implemented');
+       |         ^
+      3| };
+      4|
+ ❯ src/email.test.js:37:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  18 failed (18)
+   Start at  15:56:30
+   Duration  112ms (transform 45%, import 26%, tests 22%, worker 7%)
+
