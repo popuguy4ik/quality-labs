@@ -7,3 +7,15 @@ lab3/dist
 lab3/.lighthouseci
 lab3/lhci-*/*.json
 lab3/lhci-mobile-report
+lab5/dist
+lab5/lhci-report
+lab5/.lighthouseci
+lab4/results/load-jsonplaceholder.json
+lab4/results/stress.json
+lab4/results/stress2.json
+lab4/results/soak-leak.json
+lab4/results/soak-fixed.json
+lab4/results/soak-*-console.txt
+lab4/results/soak-*-memory.csv
+lab4/results/soak-*-summary.json
+lab4/results/api-*.log

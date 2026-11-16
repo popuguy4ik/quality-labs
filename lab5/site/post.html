@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как устроено сквозное шифрование в Сове</title>
+  <meta name="description" content="Где хранятся ключи шифрования, что видит сервер и как проверить собеседника в мессенджере Сова.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#4F46E5">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme;
+      try { theme = localStorage.getItem('sova-theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/fonts.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/fonts.css"></noscript>
+  <script src="js/theme.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+</head>
+<body class="page-post">
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 2v3m8-3v3"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/></g></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18l6-6l-6-6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16"/></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092a10 10 0 1 0-4.777-4.719"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol>
+    <symbol id="i-rss" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Сова, на главную">
+        <img src="img/logo.svg" alt="" width="36" height="36">
+        <span>Сова</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация"><a href="features.html" class="nav__link">Возможности</a><a href="team.html" class="nav__link">Команда</a><a href="blog.html" class="nav__link nav__link--active" aria-current="page">Блог</a><a href="contacts.html" class="nav__link">Контакты</a></nav>
+      <div class="header__actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Включить тёмную тему" aria-pressed="false">
+          <svg class="icon theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg>
+          <svg class="icon theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg>
+        </button>
+        <a href="feature.html" class="btn btn--ghost btn--sm header__login">Войти</a>
+        <a href="index.html#download" class="btn btn--primary btn--sm header__cta">Скачать</a>
+        <button class="icon-btn burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <div class="menu__backdrop"></div>
+    <div class="menu__panel" role="dialog" aria-modal="true" aria-label="Меню">
+      <div class="menu__top">
+        <a href="index.html" class="logo" aria-label="Сова, на главную">
+          <img src="img/logo.svg" alt="" width="36" height="36">
+          <span>Сова</span>
+        </a>
+        <button class="icon-btn menu__close" type="button" aria-label="Закрыть меню"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
+      </div>
+      <nav class="menu__nav" aria-label="Мобильная навигация"><a href="index.html" class="menu__link">Главная<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="features.html" class="menu__link">Возможности<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="team.html" class="menu__link">Команда<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="blog.html" class="menu__link menu__link--active" aria-current="page">Блог<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="contacts.html" class="menu__link">Контакты<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a></nav>
+      <div class="menu__footer">
+        <a href="index.html#download" class="btn btn--accent btn--lg btn--block">Скачать бесплатно</a>
+        <a href="feature.html" class="btn btn--secondary btn--lg btn--block">Войти в веб-версию</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="blog.html">Блог</a></li><li><span aria-current="page">Сквозное шифрование</span></li></ol></nav>
+        <h1 class="page-head__title" id="page-title">Как устроено сквозное шифрование в Сове</h1>
+        <p class="page-head__lead">Разбираемся без формул: где хранятся ключи, что видит сервер и как проверить, что вас никто не подслушивает.</p>
+        <div class="post-head__meta">
+          <span class="post-head__author"><span class="avatar avatar--sm avatar--amber" aria-hidden="true">МГ</span>Максим Гусев</span>
+          <span><svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg></span><time datetime="2026-10-12">12 октября 2026</time>
+          <span>·</span><span>7 минут чтения</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container with-sidebar with-sidebar--left">
+        <aside class="with-sidebar__aside" aria-label="Оглавление">
+          <nav class="toc" aria-labelledby="toc-title">
+            <h2 class="toc__title" id="toc-title">Содержание</h2>
+            <ol><li><a href="#what">Что такое сквозное шифрование</a></li><li><a href="#keys">Где хранятся ключи</a></li><li><a href="#check">Как проверить собеседника</a></li><li><a href="#server">Что видит сервер</a></li><li><a href="#summary">Коротко</a></li></ol>
+          </nav>
+        </aside>
+        <article class="with-sidebar__main prose">
+          <picture><source type="image/avif" srcset="img/photos/how-photo-400.avif 400w, img/photos/how-photo-800.avif 800w, img/photos/how-photo-1400.avif 1400w" sizes="(min-width: 1024px) 720px, 100vw"><source type="image/webp" srcset="img/photos/how-photo-400.webp 400w, img/photos/how-photo-800.webp 800w, img/photos/how-photo-1400.webp 1400w" sizes="(min-width: 1024px) 720px, 100vw"><img class="cover" src="img/photos/how-photo-800.jpg" alt="Девушка вечером на улице печатает сообщение в смартфоне" width="1400" height="933" loading="lazy" decoding="async"></picture>
+          <p>Когда мы говорим, что в Сове сквозное шифрование, многие кивают, но мало кто представляет, что за этим стоит. В этой статье разберем, как это работает, и обойдемся без математики.</p>
+
+          <h2 id="what">Что такое сквозное шифрование</h2>
+          <p>Обычный мессенджер шифрует сообщение по дороге до сервера. Там оно расшифровывается, хранится и отправляется дальше. Получается, что сервер, а значит и компания, может прочитать переписку.</p>
+          <p>При сквозном шифровании сообщение зашифровано всю дорогу, от вашего телефона до телефона собеседника. Сервер передает его как запечатанный конверт и не может заглянуть внутрь.</p>
+          <blockquote><p>Сервер Совы видит, что конверт есть и кому он адресован. Что внутри, знаете только вы и собеседник.</p></blockquote>
+
+          <h2 id="keys">Где хранятся ключи</h2>
+          <p>У каждого устройства своя пара ключей: открытый и закрытый. Открытый ключ можно показывать всем, им сообщения запирают. Закрытый ключ открывает их и никогда не покидает устройство.</p>
+          <ul>
+            <li>ключи создаются при первом запуске приложения;</li>
+            <li>закрытый ключ хранится в защищенной области телефона;</li>
+            <li>для каждого нового сообщения из него получается временный ключ, поэтому одна утечка не раскрывает всю историю.</li>
+          </ul>
+          <div class="callout"><p><strong>Важно.</strong> Если вы потеряли все устройства и не сделали резервную копию, восстановить переписку не сможем даже мы. Это обратная сторона приватности.</p></div>
+
+          <h2 id="check">Как проверить собеседника</h2>
+          <p>Откройте профиль собеседника и нажмите «Код безопасности». Появятся 60 цифр и QR-код. Если при встрече коды на ваших телефонах совпадают, между вами точно нет посредника.</p>
+          <p>Когда код меняется, например собеседник переустановил приложение, Сова покажет предупреждение в чате.</p>
+
+          <h2 id="server">Что видит сервер</h2>
+          <p>Нам все же нужно знать, кому доставить сообщение. Поэтому сервер видит номер или почту отправителя и получателя, время отправки и размер зашифрованных данных. Текст, фото, голосовые и файлы он не видит.</p>
+          <p>Эти служебные данные мы храним не дольше 7 дней. После доставки зашифрованное сообщение удаляется с сервера.</p>
+
+          <h2 id="summary">Коротко</h2>
+          <p>Сквозное шифрование в Сове включено во всех чатах по умолчанию, отключить его нельзя. Ключи живут только на ваших устройствах, а проверить собеседника можно по коду безопасности.</p>
+
+          <div class="card author-card">
+            <span class="avatar avatar--lg avatar--amber" aria-hidden="true">МГ</span>
+            <div>
+              <strong>Максим Гусев</strong>
+              <p>Криптограф Совы. Проектирует шифрование и проверяет каждое изменение в протоколе.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="more-title">
+      <div class="container">
+        <h2 id="more-title" data-animate>Читайте также</h2>
+        <div class="grid grid--3" data-animate-stagger>
+          <article class="card">
+            <img class="card__image" src="img/covers/post-privacy.svg" alt="" width="640" height="360" loading="lazy" decoding="async">
+            <div class="card__body">
+              <span><span class="tag">Советы</span></span>
+              <h3 class="card__title"><a class="card__link" href="post.html">Пять настроек приватности, которые стоит включить</a></h3>
+              <p class="card__text">Скрытый номер, код-пароль, исчезающие сообщения и еще две настройки, о которых мало кто знает.</p>
+              <div class="card__meta"><span>24 сентября 2026 · 5 мин</span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card__image" src="img/covers/post-metro.svg" alt="" width="640" height="360" loading="lazy" decoding="async">
+            <div class="card__body">
+              <span><span class="tag">Технологии</span></span>
+              <h3 class="card__title"><a class="card__link" href="post.html">Почему Сова работает в метро</a></h3>
+              <p class="card__text">Как мы сжимаем трафик, повторяем отправку и не теряем сообщения при плохой связи.</p>
+              <div class="card__meta"><span>15 сентября 2026 · 6 мин</span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card__image" src="img/covers/post-move.svg" alt="" width="640" height="360" loading="lazy" decoding="async">
+            <div class="card__body">
+              <span><span class="tag">Советы</span></span>
+              <h3 class="card__title"><a class="card__link" href="post.html">Как перенести чаты из другого мессенджера</a></h3>
+              <p class="card__text">Пошаговая инструкция: экспорт истории, импорт в Сову и что делать с файлами.</p>
+              <div class="card__meta"><span>27 августа 2026 · 5 мин</span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo logo--night" aria-label="Сова, на главную">
+            <img src="img/logo.svg" alt="" width="32" height="32">
+            <span>Сова</span>
+          </a>
+          <p>Мессенджер со сквозным шифрованием, который работает даже на слабом интернете.</p>
+          <div class="footer__social">
+            <a class="icon-btn icon-btn--night" href="mailto:hello@sova.example" aria-label="Написать нам на почту"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
+            <a class="icon-btn icon-btn--night" href="blog.html" aria-label="Блог Совы"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-rss"/></svg></a>
+            <a class="icon-btn icon-btn--night" href="contacts.html" aria-label="Поддержка"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg></a>
+          </div>
+        </div>
+        <nav aria-labelledby="f-product">
+          <h2 class="footer__title" id="f-product">Продукт</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="features.html">Возможности</a></li>
+            <li><a class="footer__link" href="feature.html">Веб-версия</a></li>
+            <li><a class="footer__link" href="index.html#download">Скачать</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-company">
+          <h2 class="footer__title" id="f-company">Компания</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="team.html">Команда</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+            <li><a class="footer__link" href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-help">
+          <h2 class="footer__title" id="f-help">Помощь</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="contacts.html">Поддержка</a></li>
+            <li><a class="footer__link" href="post.html">Как работает шифрование</a></li>
+            <li><a class="footer__link" href="mailto:hello@sova.example">hello@sova.example</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Сова</p>
+        <p>Учебный проект, ЛР № 3 по веб-дизайну</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

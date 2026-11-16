@@ -1,0 +1,30 @@
+{
+  "name": "lab5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint src/",
+    "format:check": "prettier --check src/",
+    "test:coverage": "vitest run --coverage",
+    "build": "node build.mjs",
+    "serve": "serve dist -l 3000",
+    "e2e": "playwright test",
+    "lhci": "lhci autorun"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.65.1",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "serve": "^14.2.8",
+    "vitest": "^5.1.0"
+  }
+}
