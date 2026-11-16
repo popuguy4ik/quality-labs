@@ -185,7 +185,7 @@ jobs:
           path: lab1/coverage/
 ```
 
-%%CI_RESULT%%
+
 
 ## 3.3 Задание 3. validateEmail через TDD
 

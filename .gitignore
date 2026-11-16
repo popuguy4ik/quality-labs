@@ -16,6 +16,4 @@ lab4/results/stress2.json
 lab4/results/soak-leak.json
 lab4/results/soak-fixed.json
 lab4/results/soak-*-console.txt
-lab4/results/soak-*-memory.csv
-lab4/results/soak-*-summary.json
 lab4/results/api-*.log
