@@ -1,0 +1,50 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 [chromium] › tests/trace-demo.spec.ts:7:1 › @demo корзина: повторное добавление того же товара (18.0s)
+
+
+  1) [chromium] › tests/trace-demo.spec.ts:7:1 › @demo корзина: повторное добавление того же товара 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#cart_info_table tbody tr').first().locator('.cart_quantity button')
+    Expected: "1"
+    Received: "2"
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveText" locator('#cart_info_table tbody tr').first().locator('.cart_quantity button') with timeout 10000ms
+      - waiting for locator('#cart_info_table tbody tr').first().locator('.cart_quantity button')
+        24 × locator resolved to <button class="disabled">2</button>
+           - unexpected value "2"
+
+
+      12 |   await catalog.addToCart(0);
+      13 |   await cart.goto();
+    > 14 |   await expect(cart.rows.first().locator('.cart_quantity button')).toHaveText('1');
+         |                                                                    ^
+      15 | });
+      16 |
+        at /Users/immat0x1/Documents/quality_labs/lab2/tests/trace-demo.spec.ts:14:68
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/trace-demo--demo-корзина-повторное-добавление-того-же-товара-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/trace-demo--demo-корзина-повторное-добавление-того-же-товара-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/trace-demo--demo-корзина-повторное-добавление-того-же-товара-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/trace-demo--demo-корзина-повторное-добавление-того-же-товара-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/trace-demo--demo-корзина-повторное-добавление-того-же-товара-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/trace-demo.spec.ts:7:1 › @demo корзина: повторное добавление того же товара ─

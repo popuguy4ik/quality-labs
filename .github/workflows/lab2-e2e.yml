@@ -1,0 +1,32 @@
+name: ЛР2 E2E tests
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ['lab2/**', '.github/workflows/lab2-e2e.yml']
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox, webkit, mobile]
+    defaults:
+      run:
+        working-directory: lab2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: lab2/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.project == 'mobile' && 'chromium' || matrix.project }}
+      - run: npx playwright test --project=${{ matrix.project }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.project }}
+          path: lab2/playwright-report/

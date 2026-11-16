@@ -1,0 +1,125 @@
+
+Running 32 tests using 1 worker
+
+  ✓   1 [chromium] › tests/login.spec.ts:6:3 › Authentication › should login with valid credentials (16.7s)
+  ✓   2 [chromium] › tests/login.spec.ts:20:3 › Authentication › should show error for invalid credentials (3.3s)
+  ✓   3 [chromium] › tests/login.spec.ts:30:3 › Authentication › should validate empty fields (2.1s)
+  ✓   4 [chromium] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя (26.6s)
+  ✓   5 [chromium] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара (3.8s)
+  ✓   6 [chromium] › tests/shop.spec.ts:33:3 › Интернет-магазин automationexercise.com › 3. добавление в корзину (5.9s)
+  ✓   7 [chromium] › tests/shop.spec.ts:51:3 › Интернет-магазин automationexercise.com › 4. оформление заказа (13.8s)
+  ✓   8 [chromium] › tests/shop.spec.ts:78:3 › Интернет-магазин automationexercise.com › 5. выход из аккаунта (17.3s)
+  ✓   9 [firefox] › tests/login.spec.ts:6:3 › Authentication › should login with valid credentials (14.9s)
+  ✓  10 [firefox] › tests/login.spec.ts:20:3 › Authentication › should show error for invalid credentials (8.0s)
+  ✓  11 [firefox] › tests/login.spec.ts:30:3 › Authentication › should validate empty fields (2.3s)
+  ✓  12 [firefox] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя (6.4s)
+  ✘  13 [firefox] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара (13.5s)
+  ✓  14 [firefox] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара (retry #1) (10.6s)
+  ✓  15 [firefox] › tests/shop.spec.ts:33:3 › Интернет-магазин automationexercise.com › 3. добавление в корзину (8.3s)
+  ✓  16 [firefox] › tests/shop.spec.ts:51:3 › Интернет-магазин automationexercise.com › 4. оформление заказа (12.3s)
+  ✓  17 [firefox] › tests/shop.spec.ts:78:3 › Интернет-магазин automationexercise.com › 5. выход из аккаунта (11.2s)
+  ✓  18 [webkit] › tests/login.spec.ts:6:3 › Authentication › should login with valid credentials (14.0s)
+  ✓  19 [webkit] › tests/login.spec.ts:20:3 › Authentication › should show error for invalid credentials (7.2s)
+  ✓  20 [webkit] › tests/login.spec.ts:30:3 › Authentication › should validate empty fields (2.3s)
+  ✘  21 [webkit] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя (14.6s)
+  ✓  22 [webkit] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя (retry #1) (9.3s)
+  ✓  23 [webkit] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара (9.1s)
+  ✓  24 [webkit] › tests/shop.spec.ts:33:3 › Интернет-магазин automationexercise.com › 3. добавление в корзину (7.2s)
+  ✓  25 [webkit] › tests/shop.spec.ts:51:3 › Интернет-магазин automationexercise.com › 4. оформление заказа (18.0s)
+  ✓  26 [webkit] › tests/shop.spec.ts:78:3 › Интернет-магазин automationexercise.com › 5. выход из аккаунта (15.2s)
+  ✓  27 [mobile] › tests/login.spec.ts:6:3 › Authentication › should login with valid credentials (10.3s)
+  ✓  28 [mobile] › tests/login.spec.ts:20:3 › Authentication › should show error for invalid credentials (2.4s)
+  ✓  29 [mobile] › tests/login.spec.ts:30:3 › Authentication › should validate empty fields (1.7s)
+  ✓  30 [mobile] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя (9.4s)
+  ✓  31 [mobile] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара (5.3s)
+  ✓  32 [mobile] › tests/shop.spec.ts:33:3 › Интернет-магазин automationexercise.com › 3. добавление в корзину (7.2s)
+  ✓  33 [mobile] › tests/shop.spec.ts:51:3 › Интернет-магазин automationexercise.com › 4. оформление заказа (21.4s)
+  ✓  34 [mobile] › tests/shop.spec.ts:78:3 › Интернет-магазин automationexercise.com › 5. выход из аккаунта (13.1s)
+
+
+  1) [firefox] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.features_items h2.title')
+    Expected pattern: /searched products/i
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.features_items h2.title') with timeout 10000ms
+      - waiting for locator('.features_items h2.title')
+
+
+      25 |     await catalog.search('Jeans');
+      26 |
+    > 27 |     await expect(catalog.title).toHaveText(/searched products/i);
+         |                                 ^
+      28 |     const names = await catalog.productNames();
+      29 |     expect(names.length).toBeGreaterThan(0);
+      30 |     for (const n of names) expect(n.toLowerCase()).toContain('jeans');
+        at /Users/immat0x1/Documents/quality_labs/lab2/tests/shop.spec.ts:27:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-automationexercise-com-2-поиск-товара-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-automationexercise-com-2-поиск-товара-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shop-Интернет-магазин-automationexercise-com-2-поиск-товара-firefox/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-automationexercise-com-2-поиск-товара-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shop-Интернет-магазин-automationexercise-com-2-поиск-товара-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('[data-qa="account-created"]')
+    Expected pattern: /account created/i
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('[data-qa="account-created"]') with timeout 10000ms
+      - waiting for locator('[data-qa="account-created"]')
+
+
+      12 |     await login.register(user);
+      13 |
+    > 14 |     await expect(page.locator('[data-qa="account-created"]')).toHaveText(/account created/i);
+         |                                                               ^
+      15 |     await page.locator('[data-qa="continue-button"]').click();
+      16 |     await expect(page.getByText(`Logged in as ${user.name}`)).toBeVisible();
+      17 |
+        at /Users/immat0x1/Documents/quality_labs/lab2/tests/shop.spec.ts:14:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-auto-e3609-страция-нового-пользователя-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-auto-e3609-страция-нового-пользователя-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shop-Интернет-магазин-auto-e3609-страция-нового-пользователя-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shop-Интернет-магазин-auto-e3609-страция-нового-пользователя-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shop-Интернет-магазин-auto-e3609-страция-нового-пользователя-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 flaky
+    [firefox] › tests/shop.spec.ts:22:3 › Интернет-магазин automationexercise.com › 2. поиск товара 
+    [webkit] › tests/shop.spec.ts:8:3 › Интернет-магазин automationexercise.com › 1. регистрация нового пользователя 
+  30 passed (5.8m)
