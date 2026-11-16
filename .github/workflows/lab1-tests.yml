@@ -1,0 +1,29 @@
+name: ЛР1 Unit tests
+
+on:
+  push:
+    paths: ['lab1/**', '.github/workflows/lab1-tests.yml']
+  pull_request:
+    paths: ['lab1/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: lab1/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run test:coverage
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lab1-coverage
+          path: lab1/coverage/
