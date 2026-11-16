@@ -1,0 +1,18 @@
+
+ RUN  v5.1.0 /Users/immat0x1/Documents/quality_labs/lab1
+
+ ✓ src/format.test.js > formatCurrency > formats rubles with two decimals 9ms
+ ✓ src/format.test.js > formatCurrency > uses rubles by default 0ms
+ ✓ src/format.test.js > formatCurrency > formats dollars and euros 0ms
+ ✓ src/format.test.js > formatCurrency > formats zero 0ms
+ ✓ src/format.test.js > formatCurrency > formats negative amounts 0ms
+ ✓ src/format.test.js > formatCurrency > rounds to kopecks 0ms
+ ✓ src/format.test.js > formatCurrency > formats millions with grouping 0ms
+ ✓ src/format.test.js > formatCurrency > throws for invalid amount 0ms
+ ✓ src/format.test.js > formatCurrency > throws for unsupported currency 0ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  15:56:29
+   Duration  74ms (tests 56%, import 23%, transform 14%, worker 8%)
+
