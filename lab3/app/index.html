@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сова. Приватный мессенджер</title>
+  <meta name="description" content="Сова: бесплатный мессенджер со сквозным шифрованием, который работает даже на слабом интернете.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#4F46E5">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme;
+      try { theme = localStorage.getItem('sova-theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preload" as="image" href="img/photos/hero-sky-720.avif" type="image/avif" media="(max-width: 799px)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/photos/hero-sky-1600.webp" type="image/webp" media="(min-width: 800px)" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/fonts.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/fonts.css"></noscript>
+  <script src="js/theme.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+  <script src="js/form.js" defer></script>
+</head>
+<body class="page-index">
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18l6-6l-6-6"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zm2.054 10.987H3.946"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16"/></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092a10 10 0 1 0-4.777-4.719"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 19v3m7-12v2a7 7 0 0 1-14 0v-2"/><rect width="6" height="13" x="9" y="2" rx="3"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol>
+    <symbol id="i-paperclip" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 6l-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></symbol>
+    <symbol id="i-rss" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></g></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11zm7.318-19.539l-10.94 10.939"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12l2 2l4-4"/></g></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594zM20 2v4m2-2h-4"/><circle cx="4" cy="20" r="2"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10 2h4m-2 12l3-3"/><circle cx="12" cy="14" r="8"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.914 4a1.5 1.5 0 0 0-2.474-1.561l-9 9A1.5 1.5 0 0 0 5.5 14h4.002a.5.5 0 0 1 .471.666L8.086 20a1.5 1.5 0 0 0 2.475 1.56l9-9A1.5 1.5 0 0 0 18.5 10h-3.997a.5.5 0 0 1-.472-.667z"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Сова, на главную">
+        <img src="img/logo.svg" alt="" width="36" height="36">
+        <span>Сова</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация"><a href="features.html" class="nav__link">Возможности</a><a href="team.html" class="nav__link">Команда</a><a href="blog.html" class="nav__link">Блог</a><a href="contacts.html" class="nav__link">Контакты</a></nav>
+      <div class="header__actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Включить тёмную тему" aria-pressed="false">
+          <svg class="icon theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg>
+          <svg class="icon theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg>
+        </button>
+        <a href="feature.html" class="btn btn--ghost btn--sm header__login">Войти</a>
+        <a href="index.html#download" class="btn btn--primary btn--sm header__cta">Скачать</a>
+        <button class="icon-btn burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <div class="menu__backdrop"></div>
+    <div class="menu__panel" role="dialog" aria-modal="true" aria-label="Меню">
+      <div class="menu__top">
+        <a href="index.html" class="logo" aria-label="Сова, на главную">
+          <img src="img/logo.svg" alt="" width="36" height="36">
+          <span>Сова</span>
+        </a>
+        <button class="icon-btn menu__close" type="button" aria-label="Закрыть меню"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
+      </div>
+      <nav class="menu__nav" aria-label="Мобильная навигация"><a href="index.html" class="menu__link menu__link--active" aria-current="page">Главная<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="features.html" class="menu__link">Возможности<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="team.html" class="menu__link">Команда<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="blog.html" class="menu__link">Блог<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a><a href="contacts.html" class="menu__link">Контакты<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg></a></nav>
+      <div class="menu__footer">
+        <a href="index.html#download" class="btn btn--accent btn--lg btn--block">Скачать бесплатно</a>
+        <a href="feature.html" class="btn btn--secondary btn--lg btn--block">Войти в веб-версию</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="badge" data-animate="fade"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-sparkles"/></svg>Новое: голосовые чаты до 200 человек</p>
+          <h1 class="hero__title" id="hero-title">Мессенджер, который умеет <span class="hero__accent">хранить секреты</span></h1>
+          <p class="hero__lead">Сквозное шифрование, мгновенная доставка даже на слабом интернете и ни одной рекламы. Бесплатно на телефоне, компьютере и в браузере.</p>
+          <div class="hero__actions">
+            <a href="#download" class="btn btn--accent btn--lg">Скачать бесплатно</a>
+            <a href="features.html" class="btn btn--inverse btn--lg">Все возможности</a>
+          </div>
+          <ul class="hero__facts">
+            <li>Бесплатно</li>
+            <li>Без рекламы</li>
+            <li>iOS, Android, Windows, macOS</li>
+          </ul>
+        </div>
+        <div class="hero__visual" data-animate="right">
+          <div class="phone" role="img" aria-label="Экран приложения Сова: переписка с подругой Аней">
+            <div class="phone__screen" aria-hidden="true">
+              <div class="chat__head">
+                <span class="avatar avatar--sm avatar--amber">А</span>
+                <span class="chat__who"><b>Аня</b><small>в сети</small></span>
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>
+              </div>
+              <div class="chat__body">
+                <p class="msg msg--in">Привет! Скинешь фото с выходных?</p>
+                <p class="msg msg--out">Уже отправляю. Их увидишь только ты</p>
+                <p class="msg msg--in">Дошло мгновенно, хотя я в метро!</p>
+                <p class="msg msg--out">Сова летает быстро</p>
+                <p class="msg msg--in">Ты в субботу с нами на дачу?</p>
+                <p class="msg msg--out">Конечно! Там тоже будет связь</p>
+              </div>
+              <div class="chat__composer">
+                <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-paperclip"/></svg>
+                <span>Сообщение</span>
+                <span class="chat__send"><svg class="icon icon--xs" aria-hidden="true" focusable="false"><use href="#i-send"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-home" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <p class="eyebrow">Возможности</p>
+          <h2 id="features-title">Всё для спокойного общения</h2>
+          <p class="section-head__lead">Сова создана для тех, кто ценит приватность, но не готов мириться с медленными и сложными приложениями.</p>
+        </div>
+        <div class="grid grid--3" data-animate-stagger>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></span>
+              <h3 class="card__title">Сквозное шифрование</h3>
+              <p class="card__text">Ключи хранятся только на ваших устройствах. Даже мы не можем прочитать переписку.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-zap"/></svg></span>
+              <h3 class="card__title">Экономия трафика</h3>
+              <p class="card__text">Сова сжимает данные и докачивает файлы. Сообщения доходят в метро, за городом и в роуминге.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-laptop"/></svg></span>
+              <h3 class="card__title">Веб-версия</h3>
+              <p class="card__text">Откройте Сову в браузере на любом компьютере. Вход по QR-коду, без пароля и установки.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-paperclip"/></svg></span>
+              <h3 class="card__title">Файлы до 4 ГБ</h3>
+              <p class="card__text">Отправляйте видео, архивы и документы без сжатия. Загрузка продолжится после обрыва связи.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mic"/></svg></span>
+              <h3 class="card__title">Голосовые чаты до 200 человек</h3>
+              <p class="card__text">Комнаты для разговоров с друзьями, учебной группой или командой. Можно поднять руку и выйти в эфир.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__body">
+              <span class="feature__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-timer"/></svg></span>
+              <h3 class="card__title">Исчезающие сообщения</h3>
+              <p class="card__text">Задайте время жизни сообщений в чате: от 30 секунд до недели. Потом они удалятся у всех.</p>
+            </div>
+          </article>
+        </div>
+        <div class="section-foot" data-animate="fade">
+          <a href="features.html" class="btn btn--secondary">Все возможности <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <p class="eyebrow">Отзывы</p>
+          <h2 id="reviews-title">Нам доверяют разговоры</h2>
+        </div>
+        <div class="grid grid--3" data-animate-stagger>
+          <figure class="card review">
+            <div class="card__body">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+              <blockquote class="review__text"><p>«Перевела на Сову всю семью. Бабушка разобралась сама, а голосовые наконец-то доходят даже на даче.»</p></blockquote>
+              <figcaption class="review__author">
+                <span class="avatar avatar--violet" aria-hidden="true">МК</span>
+                <span><span class="review__name">Мария Ковалева</span><span class="review__role">продуктовый дизайнер</span></span>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="card review">
+            <div class="card__body">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+              <blockquote class="review__text"><p>«Живу в общежитии с вечно слабым Wi‑Fi. Сова единственный мессенджер, где сообщения не висят с часиками.»</p></blockquote>
+              <figcaption class="review__author">
+                <span class="avatar avatar--amber" aria-hidden="true">АЛ</span>
+                <span><span class="review__name">Алексей Ласточкин</span><span class="review__role">студент</span></span>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="card review">
+            <div class="card__body">
+              <div class="review__stars" role="img" aria-label="Оценка 5 из 5"><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></div>
+              <blockquote class="review__text"><p>«Перенесли рабочие чаты за один вечер. Приятно знать, что переписку с клиентами не прочитает никто, кроме нас.»</p></blockquote>
+              <figcaption class="review__author">
+                <span class="avatar" aria-hidden="true">ОВ</span>
+                <span><span class="review__name">Ольга Воронцова</span><span class="review__role">руководитель команды</span></span>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="download" aria-labelledby="cta-title">
+      <div class="container cta__inner" data-animate>
+        <h2 class="cta__title" id="cta-title">Готовы перейти на Сову?</h2>
+        <p class="cta__text">Оставьте почту, и мы пришлем ссылку на скачивание для всех ваших устройств. Перенос чатов займет пару минут.</p>
+        <form class="subscribe" action="#" novalidate data-validate data-success="Спасибо! Ссылка уже летит к вам на почту." data-error="Проверьте адрес почты, например: name@mail.ru">
+          <label class="visually-hidden" for="email">Электронная почта</label>
+          <input class="input" id="email" name="email" type="email" placeholder="name@mail.ru" autocomplete="email" required aria-describedby="subscribe-note">
+          <button class="btn btn--accent btn--lg" type="submit">Получить ссылку</button>
+        </form>
+        <p class="subscribe__note" id="subscribe-note" role="status">Без спама, только ссылка на скачивание.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="logo logo--night" aria-label="Сова, на главную">
+            <img src="img/logo.svg" alt="" width="32" height="32">
+            <span>Сова</span>
+          </a>
+          <p>Мессенджер со сквозным шифрованием, который работает даже на слабом интернете.</p>
+          <div class="footer__social">
+            <a class="icon-btn icon-btn--night" href="mailto:hello@sova.example" aria-label="Написать нам на почту"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
+            <a class="icon-btn icon-btn--night" href="blog.html" aria-label="Блог Совы"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-rss"/></svg></a>
+            <a class="icon-btn icon-btn--night" href="contacts.html" aria-label="Поддержка"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg></a>
+          </div>
+        </div>
+        <nav aria-labelledby="f-product">
+          <h2 class="footer__title" id="f-product">Продукт</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="features.html">Возможности</a></li>
+            <li><a class="footer__link" href="feature.html">Веб-версия</a></li>
+            <li><a class="footer__link" href="index.html#download">Скачать</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-company">
+          <h2 class="footer__title" id="f-company">Компания</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="team.html">Команда</a></li>
+            <li><a class="footer__link" href="blog.html">Блог</a></li>
+            <li><a class="footer__link" href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-help">
+          <h2 class="footer__title" id="f-help">Помощь</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="contacts.html">Поддержка</a></li>
+            <li><a class="footer__link" href="post.html">Как работает шифрование</a></li>
+            <li><a class="footer__link" href="mailto:hello@sova.example">hello@sova.example</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Сова</p>
+        <p>Учебный проект, ЛР № 3 по веб-дизайну</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

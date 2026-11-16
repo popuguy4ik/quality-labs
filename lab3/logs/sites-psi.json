@@ -1,0 +1,77 @@
+{
+ "wikipedia": {
+  "field": {
+   "LCP": "1,2 сек.",
+   "INP": "130 мс",
+   "CLS": "0",
+   "FCP": "1,2 сек.",
+   "TTFB": "0,8 сек."
+  },
+  "verdict": [
+   "проверка пройдена"
+  ],
+  "scores": [
+   "99",
+   "87",
+   "100",
+   "85"
+  ],
+  "lab": {
+   "First Contentful Paint": "1,2 сек.",
+   "Largest Contentful Paint": "1,2 сек.",
+   "Total Blocking Time": "20 мс",
+   "Cumulative Layout Shift": "0",
+   "Speed Index": "3,5 сек."
+  }
+ },
+ "github": {
+  "field": {
+   "LCP": "4,9 сек.",
+   "INP": "285 мс",
+   "CLS": "0,29",
+   "FCP": "2,6 сек.",
+   "TTFB": "1,7 сек."
+  },
+  "verdict": [
+   "проверка не пройдена"
+  ],
+  "scores": [
+   "29",
+   "96",
+   "96",
+   "92"
+  ],
+  "lab": {
+   "First Contentful Paint": "3,6 сек.",
+   "Largest Contentful Paint": "17,5 сек.",
+   "Total Blocking Time": "4 680 мс",
+   "Cumulative Layout Shift": "0",
+   "Speed Index": "10,6 сек."
+  }
+ },
+ "habr": {
+  "field": {
+   "LCP": "2,7 сек.",
+   "INP": "261 мс",
+   "CLS": "0,05",
+   "FCP": "2,1 сек.",
+   "TTFB": "1,3 сек."
+  },
+  "verdict": [
+   "проверка не пройдена"
+  ],
+  "scores": [
+   "Выявляйте проблемы с производительностью",
+   "Производительность",
+   "Специальные возможности",
+   "Рекомендации"
+  ],
+  "lab": {
+   "First Contentful Paint": "Error!",
+   "Largest Contentful Paint": "Error!",
+   "Total Blocking Time": "Error!",
+   "Cumulative Layout Shift": "Error!",
+   "Speed Index": "Error!"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server with "npx serve dist -l 3000"...
+Running Lighthouse 3 time(s) on http://localhost:3000/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 1 URL(s), 3 total run(s)
+
+All results processed!
+
+Dumping 3 reports to disk at /Users/immat0x1/Documents/quality_labs/lab3/lhci-mobile-report...
+Done writing reports to disk.
+
+Done running autorun.

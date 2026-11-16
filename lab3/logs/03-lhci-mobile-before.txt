@@ -1,0 +1,37 @@
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+Healthcheck passed!
+
+Started a web server with "npx serve dist -l 3000"...
+Running Lighthouse 3 time(s) on http://localhost:3000/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 1 URL(s), 3 total run(s)
+
+2 result(s) for http://localhost:3000/ :
+
+  ✘  resource-summary.font.size failure for maxNumericValue assertion
+       Resources Summary
+
+        expected: <=51200
+           found: 106097
+      all values: 106097, 106097, 106903
+
+
+  ✘  resource-summary.third-party.count failure for maxNumericValue assertion
+       Resources Summary
+
+        expected: <=2
+           found: 5
+      all values: 5, 5, 5
+
+Assertion failed. Exiting with status code 1.
+
+Dumping 3 reports to disk at /Users/immat0x1/Documents/quality_labs/lab3/lhci-mobile-report...
+Done writing reports to disk.
+
+assert command failed. Exiting with status code 1.

@@ -1,0 +1,21 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.mjs app",
+    "build:before": "node build.mjs app-before",
+    "serve": "serve dist -l 3000",
+    "lhci": "lhci autorun"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "serve": "^14.2.8"
+  }
+}

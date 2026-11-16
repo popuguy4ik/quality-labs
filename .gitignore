@@ -3,3 +3,7 @@ coverage
 test-results
 playwright-report
 .npm-cache
+lab3/dist
+lab3/.lighthouseci
+lab3/lhci-*/*.json
+lab3/lhci-mobile-report
