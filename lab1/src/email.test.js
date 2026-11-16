@@ -33,6 +33,10 @@ describe('validateEmail', () => {
     expect(validateEmail('a'.repeat(65) + '@example.com')).toBe(false);
   });
 
+  it('rejects address longer than 254 characters', () => {
+    expect(validateEmail('user@' + 'a'.repeat(250) + '.com')).toBe(false);
+  });
+
   it('rejects non-string values', () => {
     expect(validateEmail(null)).toBe(false);
     expect(validateEmail(undefined)).toBe(false);

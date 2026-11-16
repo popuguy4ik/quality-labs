@@ -1,0 +1,27 @@
+
+ RUN  v5.1.0 /Users/immat0x1/Documents/quality_labs/lab1
+
+ ✓ src/email.test.js > validateEmail > accepts valid address user@example.com 1ms
+ ✓ src/email.test.js > validateEmail > accepts valid address ilya.gugu@mail.ru 0ms
+ ✓ src/email.test.js > validateEmail > accepts valid address a_b-c+tag@sub.domain.org 0ms
+ ✓ src/email.test.js > validateEmail > accepts valid address X@Y.IO 0ms
+ ✓ src/email.test.js > validateEmail > trims spaces around the address 0ms
+ ✓ src/email.test.js > validateEmail > rejects  (empty string) 0ms
+ ✓ src/email.test.js > validateEmail > rejects userexample.com (no @) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user@@example.com (two @) 0ms
+ ✓ src/email.test.js > validateEmail > rejects @example.com (empty local part) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user@ (empty domain) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user@example (domain without dot) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user@example.c (one-letter TLD) 0ms
+ ✓ src/email.test.js > validateEmail > rejects us er@example.com (space inside) 0ms
+ ✓ src/email.test.js > validateEmail > rejects .user@example.com (local part starts with dot) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user..name@example.com (two dots in a row) 0ms
+ ✓ src/email.test.js > validateEmail > rejects user@-example.com (domain label starts with hyphen) 0ms
+ ✓ src/email.test.js > validateEmail > rejects local part longer than 64 characters 0ms
+ ✓ src/email.test.js > validateEmail > rejects non-string values 0ms
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  15:56:37
+   Duration  76ms (transform 42%, import 32%, tests 16%, worker 10%)
+

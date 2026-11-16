@@ -1,0 +1,20 @@
+
+ RUN  v5.1.0 /Users/immat0x1/Documents/quality_labs/lab1
+      Coverage enabled with v8
+
+
+ Test Files  3 passed (3)
+      Tests  35 passed (35)
+   Start at  15:56:48
+   Duration  117ms (transform 28%, worker 28%, tests 22%, import 22%)
+
+ % Coverage report from v8
+No files with missing coverage.
+3 files fully covered.
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 40/40 )
+Branches     : 100% ( 34/34 )
+Functions    : 100% ( 6/6 )
+Lines        : 100% ( 33/33 )
+================================================================================
