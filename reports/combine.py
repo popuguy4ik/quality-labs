@@ -24,6 +24,8 @@ title_page: full
 section_page_break: structural
 ---
 
+# СОДЕРЖАНИЕ
+
 {{toc}}
 
 '''
@@ -55,8 +57,8 @@ for n in range(1, 6):
             line = re.sub(r'^(#{1,2}) (\d+(?:\.\d+)?) (.*)$', head, line)
         lines.append(line)
     body = '\n'.join(lines)
-    body = re.sub(r'%%CI_[A-Z0-9_]+%%', PENDING, body)
-    out.append(f'# {n} Лабораторная работа № {n}. {meta["topic"]}\n\n{body.strip()}\n\n')
+    body = re.sub(r'%%[A-Z0-9_]+%%', PENDING, body)
+    out.append(('{{pagebreak}}\n\n' if n > 1 else '') + f'# {n} Лабораторная работа № {n}. {meta["topic"]}\n\n{body.strip()}\n\n')
 
 (HERE / 'combined.md').write_text(''.join(out))
 print('combined.md:', sum(len(x) for x in out), 'chars')

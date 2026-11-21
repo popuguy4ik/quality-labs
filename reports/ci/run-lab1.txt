@@ -1,0 +1,66 @@
+Skip to content
+Navigation Menu
+Products
+Developers
+Businesses
+Resources
+Pricing
+Search
+/
+Sign in
+Sign up
+popuguy4ik
+quality-labs
+Repository navigation
+Code
+Issues
+Pull requests
+1
+ (1)
+Actions
+Projects
+Security and quality
+Insights
+ЛР1 Unit tests
+README для ЛР1–ЛР3 с командами запуска #1
+Sign in to view logs
+Summary
+All jobs
+test
+Run details
+Usage
+Workflow file
+Lockfile
+Triggered via push 
+popuguy4ik
+pushed
+ 1dddd45
+main
+Status
+Success
+Total duration
+14s
+Artifacts
+1
+lab1-tests.yml
+on: push
+test
+10s
+
+Oh hello! Nice to see you.
+
+Made with ❤️ by humans.txt
+
+Annotations
+1 warning
+test
+Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Show more
+Artifacts
+Produced during runtime
+Name	Size	Digest	
+
+lab1-coverage
+	114 KB	
+sha256:184301fd143a8792ab927b9e7d6e7e71e5d8f694e42760c1c4b046bd6e1d46ce
+	

@@ -1,0 +1,120 @@
+Skip to content
+Navigation Menu
+Products
+Developers
+Businesses
+Resources
+Pricing
+Search
+/
+Sign in
+Sign up
+All workflows
+Workflows
+Quality Gate
+ЛР1 Unit tests
+ЛР2 E2E tests
+ЛР3 Lighthouse CI
+Обновить эталонные скриншоты
+Management
+Collapse sidebar
+All workflows
+Showing runs from all workflows
+Filter workflow runs
+Workflow runs
+7 workflow runs
+Auto-refresh: 30s
+Workflow
+Event
+Status
+Branch
+Actor
+README для ЛР1–ЛР3 с командами запуска
+completed successfully:
+ЛР1 Unit tests
+#1:
+Commit
+1dddd45
+pushed
+by
+popuguy4ik
+main
+14s
+README для ЛР1–ЛР3 с командами запуска
+currently running:
+ЛР2 E2E tests
+#1:
+Commit
+1dddd45
+pushed
+by
+popuguy4ik
+main
+In progress
+README для ЛР1–ЛР3 с командами запуска
+currently running:
+ЛР3 Lighthouse CI
+#1:
+Commit
+1dddd45
+pushed
+by
+popuguy4ik
+main
+In progress
+README для ЛР1–ЛР3 с командами запуска
+currently running:
+Quality Gate
+#3:
+Commit
+1dddd45
+pushed
+by
+popuguy4ik
+main
+In progress
+Эталонные скриншоты снимаются автоматически при изменении визуальных …
+completed successfully:
+Обновить эталонные скриншоты
+#1:
+Commit
+bb8ef75
+pushed
+by
+popuguy4ik
+main
+38s
+Эталонные скриншоты снимаются автоматически при изменении визуальных …
+failed:
+Quality Gate
+#2:
+Commit
+bb8ef75
+pushed
+by
+popuguy4ik
+main
+3m 11s
+ЛР5: исправлен include в Vitest; README с бейджами; единый отчет
+failed:
+Quality Gate
+#1:
+Commit
+800b68c
+pushed
+by
+popuguy4ik
+main
+2m 42s
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information

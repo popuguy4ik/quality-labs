@@ -185,6 +185,10 @@ jobs:
           path: lab1/coverage/
 ```
 
+Первый же запуск в GitHub Actions прошел успешно за 14 секунд: линтер, проверка форматирования и 35 тестов с покрытием, отчет о покрытии сохранен как артефакт (рисунок @fig:ci). Репозиторий: https://github.com/popuguy4ik/quality-labs.
+
+![Запуск workflow «ЛР1 Unit tests» в GitHub Actions](img/l1-ci.png){#ci width=16.5cm}
+
 
 
 ## 3.3 Задание 3. validateEmail через TDD

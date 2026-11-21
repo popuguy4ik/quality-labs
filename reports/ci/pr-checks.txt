@@ -1,0 +1,87 @@
+Skip to content
+Navigation Menu
+Products
+Developers
+Businesses
+Resources
+Pricing
+Search
+/
+Sign in
+Sign up
+popuguy4ik
+quality-labs
+Repository navigation
+Code
+Issues
+Pull requests
+1
+ (1)
+Actions
+Projects
+Security and quality
+Insights
+Демо для ЛР5: ошибка в расчете скидки (PR должен заблокироваться)
+- #1
+#1
+Open
+popuguy4ik
+wants to merge 1 commit into
+main
+from
+demo/broken-discount
++1
+-1
+Lines changed: 1 addition & 1 deletion
+Conversation0
+ (0)
+Commits1
+ (1)
+Checks17
+ (17)
+Files changed1
+ (1)
+Демо для ЛР5: ошибка в расчете скидки (PR должен заблокироваться)
+f5ea5d5 
+GitGuardian
+GitGuardian Security Checks
+ЛР3 Lighthouse CI
+on: pull_request
+ 1
+Quality Gate
+on: pull_request
+ 5
+ЛР3 Lighthouse CI
+on: pull_request
+ 1
+Quality Gate
+on: pull_request
+ 5
+GitGuardian / GitGuardian Security Checks
+succeeded  in 2s
+No secrets detected ✅
+
+1 commit was scanned without uncovering any secrets.
+
+DETAILS
+
+Commit scanned: 1
+
+Pull request #1: demo/broken-discount 👉 main
+
+🦉 GitGuardian detects secrets in your source code to help developers and security teams secure the modern development process. You are seeing this because you or someone else with access to this repository has authorized GitGuardian to scan your pull request.
+
+
+View more details on GitGuardian
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information

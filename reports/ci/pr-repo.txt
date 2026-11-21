@@ -1,0 +1,157 @@
+Skip to content
+Navigation Menu
+Products
+Developers
+Businesses
+Resources
+Pricing
+Search
+/
+Sign in
+Sign up
+popuguy4ik
+quality-labs
+Repository navigation
+Code
+Issues
+Pull requests
+1
+ (1)
+Actions
+Projects
+Security and quality
+Insights
+quality-labs
+Public
+Notifications
+Fork0
+ (0)
+Star0
+ (0)
+main
+3 Branches
+0 Tags
+Code
+Latest commit
+popuguy4ik
+Убрать служебные файлы macOS (.DS_Store)
+2c6368a
+ · 
+History
+14 Commits
+Folders and files
+Name	Last commit message	Last commit date
+
+.github/workflows
+	
+Эталонные скриншоты снимаются автоматически при изменении визуальных …
+	
+
+
+lab1
+	
+README для ЛР1–ЛР3 с командами запуска
+	
+
+
+lab2
+	
+README для ЛР1–ЛР3 с командами запуска
+	
+
+
+lab3
+	
+README для ЛР1–ЛР3 с командами запуска
+	
+
+
+lab4
+	
+ЛР4: результаты stress и soak, графики; отчеты ЛР1–ЛР4
+	
+
+
+lab5
+	
+Обновить эталонные скриншоты
+	
+
+
+reports
+	
+Убрать служебные файлы macOS (.DS_Store)
+	
+
+
+.gitignore
+	
+Убрать служебные файлы macOS (.DS_Store)
+	
+
+
+README.md
+	
+ЛР5: исправлен include в Vitest; README с бейджами; единый отчет
+	
+Repository files navigation
+README
+Управление качеством: лабораторные работы 1–5
+
+ 
+
+Папка	Работа
+lab1	Статический анализ (ESLint, Prettier) и юнит-тесты (Vitest), TDD
+lab2	E2E-тесты Playwright, Page Object, trace и видео
+lab3	Lighthouse CI, Core Web Vitals, performance budget
+lab4	Нагрузочное тестирование k6: load, stress, soak
+lab5	Полный пайплайн Quality Gate в GitHub Actions
+
+Отчеты по всем работам собраны в reports/.
+
+About
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Report repository
+Releases
+No releases published
+Contributors
+4
+ (4)
+popuguy4ikpopug
+claudeClaude
+immat0x1immat0x1
+github-actions[bot]
+Languages
+HTML
+98.8%
+CSS
+0.7%
+JavaScript
+0.2%
+Python
+0.2%
+TypeScript
+0.1%
+Shell
+0%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information

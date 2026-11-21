@@ -34,6 +34,8 @@ from __future__ import annotations
 
 import argparse
 import pathlib
+import json
+import os
 import re
 import sys
 
@@ -510,6 +512,21 @@ def render(doc: Document, blocks: list[dict], refs: dict[str, str],
 
         if kind == "pagebreak":
             doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+
+        elif kind == "toc" and os.environ.get("TOC_JSON") and pathlib.Path(os.environ["TOC_JSON"]).exists():
+            # статическое содержание: номера страниц берутся из готового PDF (второй проход сборки)
+            from docx.enum.text import WD_TAB_ALIGNMENT, WD_TAB_LEADER
+            for level, text, page in json.loads(pathlib.Path(os.environ["TOC_JSON"]).read_text()):
+                p = doc.add_paragraph()
+                pf = p.paragraph_format
+                pf.first_line_indent = Cm(0) if level == 1 else Cm(-0.0)
+                pf.left_indent = Cm(0 if level == 1 else 0.75)
+                pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                pf.space_after = Pt(0)
+                pf.tab_stops.add_tab_stop(Cm(16.5), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+                run = p.add_run(f"{text}\t{page}")
+                run.font.name = FONT
+                run.font.size = FONT_SIZE
 
         elif kind == "toc":
             p = doc.add_paragraph()
