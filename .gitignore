@@ -17,3 +17,4 @@ lab4/results/soak-leak.json
 lab4/results/soak-fixed.json
 lab4/results/soak-*-console.txt
 lab4/results/api-*.log
+.DS_Store
