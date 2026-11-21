@@ -397,10 +397,14 @@ def wrap_code(line: str, width: int) -> list[str]:
     if len(line) <= width:
         return [line]
     indent = len(line) - len(line.lstrip(" "))
+    # при очень большом отступе продолжение строки без отступа, иначе перенос зацикливается
+    if indent + 4 >= width // 2:
+        indent = 0
     out, rest = [], line
     while len(rest) > width:
-        cut = rest.rfind(" ", indent, width)
-        if cut <= indent:
+        # режем только дальше отступа продолжения, иначе строка не укорачивается
+        cut = rest.rfind(" ", indent + 5, width)
+        if cut <= indent + 4:
             cut = width
         out.append(rest[:cut])
         rest = " " * (indent + 4) + rest[cut:].lstrip(" ")

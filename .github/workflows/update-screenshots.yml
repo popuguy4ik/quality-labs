@@ -4,6 +4,9 @@ name: Обновить эталонные скриншоты
 # иначе шрифты и сглаживание отличаются и тесты падают из-за ОС, а не из-за верстки
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['lab5/e2e/visual.spec.ts', '.github/workflows/update-screenshots.yml']
 
 permissions:
   contents: write
