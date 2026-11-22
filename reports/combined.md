@@ -1038,9 +1038,9 @@ E2E-сценарии сайта приведены в таблице @tbl:l5-e2e
 
 ### 5.2.3 Защита ветки
 
-Защита ветки `main` настраивается в GitHub: Settings → Branches → Add rule, шаблон `main`, включены «Require status checks to pass before merging» и «Require branches to be up to date», обязательные проверки `lint`, `unit-tests`, `e2e-tests` и `lighthouse`. После этого кнопка слияния Pull Request недоступна, пока все проверки не пройдут.
+Защита ветки `main` настроена в GitHub: Settings → Branches → Add classic branch protection rule, шаблон `main`. Включены «Require a pull request before merging» и «Require status checks to pass before merging». Обязательные проверки: `unit-tests` и `summary`. Задача `summary` зависит от всех остальных этапов и падает, если упал любой из них, поэтому ее достаточно для контроля всего пайплайна. Включен запрет обхода правил, он действует и на владельца репозитория (@fig:l5-protection).
 
-*[Результат запуска в GitHub Actions будет добавлен после публикации репозитория.]*
+![Правило защиты ветки main с обязательными проверками](img/l5-protection.png){#l5-protection width=14cm}
 
 ### 5.2.4 Публикация отчетов и бейджи
 
@@ -1071,7 +1071,9 @@ E2E-сценарии сайта приведены в таблице @tbl:l5-e2e
 
 ![Запуск Quality Gate на Pull Request с ошибкой: упал этап unit-tests](img/l5-run-pr.png){#l5-pr width=16.5cm}
 
-*[Результат запуска в GitHub Actions будет добавлен после публикации репозитория.]*
+На странице PR обе обязательные проверки отмечены как Required и завершились с ошибкой. Кнопка «Merge pull request» неактивна (@fig:l5-pr-blocked).
+
+![Слияние PR с ошибкой заблокировано: обязательные проверки не пройдены](img/l5-pr-blocked.png){#l5-pr-blocked width=14cm}
 
 Так проверяется главное свойство quality gate: изменение с ошибкой не может попасть в основную ветку, даже если автор забыл запустить тесты локально. Демонстрационный PR не сливался.
 
