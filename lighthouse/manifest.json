@@ -2,8 +2,8 @@
   {
     "url": "http://localhost:3000/",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_28_49.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_28_49.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_03.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_03.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
@@ -14,8 +14,8 @@
   {
     "url": "http://localhost:3000/",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_29_13.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_29_13.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_15.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_15.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
@@ -26,8 +26,8 @@
   {
     "url": "http://localhost:3000/features.html",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_24.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_24.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_48.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_48.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -38,8 +38,8 @@
   {
     "url": "http://localhost:3000/features.html",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_36.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_36.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_59.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_59.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -50,8 +50,8 @@
   {
     "url": "http://localhost:3000/post.html",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_29_59.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_29_59.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_10.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_10.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -62,8 +62,8 @@
   {
     "url": "http://localhost:3000/post.html",
     "isRepresentativeRun": false,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_30_10.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_30_10.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_31.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_31.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -74,8 +74,8 @@
   {
     "url": "http://localhost:3000/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_29_01.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_24_17_29_01.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_26.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost--2026_11_25_17_05_26.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
@@ -86,8 +86,8 @@
   {
     "url": "http://localhost:3000/features.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_47.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_24_17_29_47.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_37.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-features_html-2026_11_25_17_05_37.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -98,8 +98,8 @@
   {
     "url": "http://localhost:3000/post.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_30_22.report.html",
-    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_24_17_30_22.report.json",
+    "htmlPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_20.report.html",
+    "jsonPath": "/home/runner/work/quality-labs/quality-labs/lab5/lhci-report/localhost-post_html-2026_11_25_17_06_20.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
